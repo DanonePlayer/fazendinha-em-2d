@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpyv4y1vemfat"]
+
+[ext_resource type="Texture2D" uid="uid://cq5kh2cll3ytx" path="res://assets/tilemaps/summer tilemap.png" id="1_v3724"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3ju5"]
+atlas = ExtResource("1_v3724")
+region = Rect2(96, 208, 16, 16)
+
+[node name="Sprite2D" type="Sprite2D"]
+visible = false
+modulate = Color(0.103186, 0.337393, 1, 1)
+self_modulate = Color(0.232277, 0.457284, 1, 1)
+texture_filter = 1
+texture = SubResource("AtlasTexture_d3ju5")

@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1as5hbtfa83e"]
+
+[ext_resource type="PackedScene" uid="uid://beie1kr5m570m" path="res://cenario_grama.tscn" id="1_dikdi"]
+[ext_resource type="PackedScene" uid="uid://bbujxklgvg3kj" path="res://fazendeira.tscn" id="2_wf2ds"]
+[ext_resource type="Texture2D" uid="uid://b22yl1x5ox8si" path="res://Crop_Spritesheet.png" id="3_j4mgd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jig1b"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2oyv"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65kxr"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya0rh"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pmnt"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaxey"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0mgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jig1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2oyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65kxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya0rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pmnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaxey")
+}],
+"loop": true,
+"name": &"Tomate",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m62v4"]
+radius = 8.0
+
+[node name="Principal" type="Node2D"]
+
+[node name="cenario_grama" parent="." instance=ExtResource("1_dikdi")]
+
+[node name="Fazendeira" parent="cenario_grama" instance=ExtResource("2_wf2ds")]
+position = Vector2(270, 143)
+
+[node name="Camera2D" type="Camera2D" parent="cenario_grama/Fazendeira"]
+position = Vector2(-71, 26)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="Tomate" type="Area2D" parent="."]
+position = Vector2(281, 180)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tomate"]
+sprite_frames = SubResource("SpriteFrames_k0mgt")
+animation = &"Tomate"
+frame = 2
+frame_progress = 0.838629
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tomate"]
+shape = SubResource("CircleShape2D_m62v4")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt2i0kdpx3sad"]
+
+[ext_resource type="Script" path="res://assets/Scripts/TimeManager.gd" id="1_tpks2"]
+[ext_resource type="Script" path="res://assets/Scripts/DayNightCycle.gd" id="2_n63m4"]
+[ext_resource type="Script" path="res://assets/Scripts/TimeUI.gd" id="3_dx844"]
+[ext_resource type="FontFile" uid="uid://dt6jbuskqvs7g" path="res://assets/fonts/pixelmix/pixelmix.ttf" id="4_82add"]
+
+[node name="TimeManager" type="Node2D"]
+script = ExtResource("1_tpks2")
+
+[node name="DayNightCycle" type="CanvasLayer" parent="."]
+script = ExtResource("2_n63m4")
+
+[node name="ColorRect" type="ColorRect" parent="DayNightCycle"]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TimeUI" type="CanvasLayer" parent="."]
+script = ExtResource("3_dx844")
+
+[node name="DayLabel" type="Label" parent="TimeUI"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_82add")
+
+[node name="TimeLabel" type="Label" parent="TimeUI"]
+offset_left = 79.0
+offset_right = 119.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_82add")
