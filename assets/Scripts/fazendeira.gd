@@ -7,7 +7,6 @@ var contruir = false  # modo construcao
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
-const TILE_SIZE = Vector2(16, 16)  # Substitua pelo tamanho real dos seus tiles
 
 func _ready() -> void:
 	print(tilemap_layer)
@@ -68,22 +67,20 @@ func construcao_metod():
 	if contruir == true:
 		# Calcula a posição da célula com base na posição do mouse
 		var mouse_position = get_global_mouse_position()
-		var cell_position = Vector2(
-		floor(mouse_position.x / TILE_SIZE.x),
-		floor(mouse_position.y / TILE_SIZE.y)
-		)
-		shadow.position = cell_position * TILE_SIZE + TILE_SIZE / 2  # Ajusta a posição da sombra
+		var cell_position = tilemap_layer.local_to_map(tilemap_layer.to_local(mouse_position))  # Usa local_to_map para alinhar ao grid
+		var shadow_position = tilemap_layer.map_to_local(cell_position)  # Converte de grid para posição local
+		shadow.position = shadow_position  # Ajusta a posição da sombra
 		shadow.visible = true  # Mostra a sombra
 
 		# Colocar o item no grid ao pressionar o botão
 		if Input.is_action_just_pressed("ui_accept"):
 			colocar_terra(cell_position)
 	else:
-		shadow.visible = false  # esconde a sombra
+		shadow.visible = false  # Esconde a sombra
+
 
 func colocar_terra(cell_position):
 	var instancia = cena_milho.instantiate()
-	# Usa map_to_local para converter a célula para coordenadas locais
-	var local_position = tilemap_layer.map_to_local(cell_position)
-	instancia.position = local_position + TILE_SIZE / 2  # Centraliza o objeto no tile
+	# Usa map_to_local para posicionar o objeto alinhado ao grid
+	instancia.position = tilemap_layer.map_to_local(cell_position)
 	add_child(instancia)
