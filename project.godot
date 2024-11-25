@@ -17,7 +17,8 @@ config/icon="res://assets/icon.svg"
 
 [autoload]
 
-Dados="*res://assets/Scripts/dados.gd"
+dadosGlobal="*res://assets/Scripts/dadosGlobal.gd"
+DialogBox="*res://assets/Cenas/Dialog_box.tscn"
 
 [dotnet]
 

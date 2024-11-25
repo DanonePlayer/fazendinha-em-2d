@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var tilemap_layer = $"../cenario_grama/TerrenoPlantio"  # Referência ao TileMapLayer
+@onready var tilemap_layer = $"../Cenario/TileMapLayer"  # Referência ao TileMapLayer
 @onready var shadow = $"../Cenario/Shadow" # Referência ao Sprite da sombra
 var cena_milho = preload("res://assets/Cenas/milho.tscn")
 var contruir = false  # modo construcao
@@ -8,9 +8,13 @@ var contruir = false  # modo construcao
 const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
+signal posicao_terra(position: Vector2)  # Sinal para transmitir a posição selecionada
+
 func _ready() -> void:
-	print(tilemap_layer)
 	shadow.visible = false  # Inicialmente a sombra está invisível
+	animacoes_cenario()
+	
+func animacoes_cenario():
 	$"../Borboleta/AnimationPlayer".play("Voando")
 	$"../Borboleta/AnimatedSprite2D".play("Borboleta")
 	$"../Cenario/Flutuante".play("agua")
@@ -31,12 +35,10 @@ func _ready() -> void:
 	$"../Cenario/Rio/canto_rio7".play("canto_rio")
 	$"../Cenario/Rio/canto_rio8".play("canto_rio")
 	$"../Cenario/Rio/canto_rio9".play("canto_rio")
-		
-
+	
 func _physics_process(_delta: float) -> void:
 	moviment_person()
 	construcao_metod()
-	
 	
 func moviment_person():
 	var direction = Input.get_vector("esquerda", "direita", "Up", "Down")
@@ -59,8 +61,7 @@ func moviment_person():
 		$AnimatedSprite2D.play("Walk")
 	if Input.is_action_just_released("esquerda") or Input.is_action_just_released("direita"):
 		$AnimatedSprite2D.play("Walk")
-		
-		
+	
 func construcao_metod():
 	if Input.is_action_just_pressed("construcao"):
 		contruir = !contruir
@@ -74,13 +75,6 @@ func construcao_metod():
 
 		# Colocar o item no grid ao pressionar o botão
 		if Input.is_action_just_pressed("ui_accept"):
-			colocar_terra(cell_position)
+			emit_signal("posicao_terra", shadow_position)  # Emite a posição da sombra
 	else:
 		shadow.visible = false  # Esconde a sombra
-
-
-func colocar_terra(cell_position):
-	var instancia = cena_milho.instantiate()
-	# Usa map_to_local para posicionar o objeto alinhado ao grid
-	instancia.position = tilemap_layer.map_to_local(cell_position)
-	add_child(instancia)

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogMetadata" load_steps=2 format=3 uid="uid://jjphb4rekrlh"]
+
+[ext_resource type="Script" path="res://assets/Scripts/DialogMetadata.gd" id="1_vb28o"]
+
+[resource]
+script = ExtResource("1_vb28o")
+msg_queue = Array[String](["Opa", "Fala ai meu bom", "CARALHO FALA LOGO MEU"])

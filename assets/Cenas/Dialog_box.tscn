@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://8i4fj0jty1eh"]
+
+[ext_resource type="Texture2D" uid="uid://cae7o2qkl8gb7" path="res://assets/Caixa_Dialogo.png" id="1_5d2ka"]
+[ext_resource type="Script" path="res://assets/Scripts/dialog_box.gd" id="2_t22lr"]
+[ext_resource type="FontFile" uid="uid://dt6jbuskqvs7g" path="res://assets/fonts/pixelmix/pixelmix.ttf" id="3_wst2s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgssh"]
+atlas = ExtResource("1_5d2ka")
+
+[node name="DialogBox" type="NinePatchRect"]
+offset_right = 300.0
+offset_bottom = 100.0
+texture = SubResource("AtlasTexture_hgssh")
+script = ExtResource("2_t22lr")
+
+[node name="Text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 35.0
+offset_right = 236.175
+offset_bottom = 73.155
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_wst2s")
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

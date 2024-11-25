@@ -8,7 +8,7 @@ region = Rect2(96, 208, 16, 16)
 
 [node name="Sprite2D" type="Sprite2D"]
 visible = false
-modulate = Color(0.103186, 0.337393, 1, 1)
-self_modulate = Color(0.232277, 0.457284, 1, 1)
+modulate = Color(0.496856, 0.658523, 1, 1)
+self_modulate = Color(0.352207, 0.552881, 1, 1)
 texture_filter = 1
 texture = SubResource("AtlasTexture_d3ju5")

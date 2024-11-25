@@ -10,11 +10,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	$"../CanvasLayer/Semente_Tomate".text =  str(Dados.semente)
 	
 	if tocouNoColider and Input.is_action_just_pressed("ui_accept"):
-		if Dados.semente >= 1 and espacoCheio == false:
-			Dados.semente -= 1
+		if dadosGlobal.semente >= 1 and espacoCheio == false:
+			dadosGlobal.semente -= 1
 			espacoCheio = true
 			show()
 			$AnimatedSprite2D.frame = 0
@@ -29,8 +28,10 @@ func _process(_delta: float) -> void:
 			espacoCheio = false
 
 
-func _on_body_entered(_body: Node2D) -> void:
-	tocouNoColider = true
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		tocouNoColider = true
 
-func _on_body_exited(_body: Node2D) -> void:
-	tocouNoColider = false
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		tocouNoColider = false

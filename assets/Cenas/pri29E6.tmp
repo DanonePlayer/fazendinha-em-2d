@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d1as5hbtfa83e"]
+[gd_scene load_steps=69 format=3 uid="uid://d1as5hbtfa83e"]
 
 [ext_resource type="Script" path="res://assets/Scripts/principal.gd" id="1_abkur"]
 [ext_resource type="PackedScene" uid="uid://beie1kr5m570m" path="res://assets/Cenas/cenario_grama.tscn" id="1_dikdi"]
@@ -10,13 +10,12 @@
 [ext_resource type="Script" path="res://assets/Scripts/pote_de_sementes.gd" id="6_taa3o"]
 [ext_resource type="Script" path="res://assets/Scripts/horas.gd" id="7_bjuq1"]
 [ext_resource type="Texture2D" uid="uid://drtihgp0eq2og" path="res://assets/butterfly spritesheet.png" id="7_ubghl"]
-[ext_resource type="Script" path="res://assets/Scripts/NPC1.gd" id="8_abcxw"]
 [ext_resource type="PackedScene" uid="uid://bt2i0kdpx3sad" path="res://assets/Cenas/time_manager.tscn" id="8_g3rlu"]
-[ext_resource type="Resource" uid="uid://jjphb4rekrlh" path="res://assets/Dialogos/Npc_base.tres" id="9_a1sml"]
 [ext_resource type="Texture2D" uid="uid://5mxws0liyjkb" path="res://assets/tilemaps/spring tilemap.png" id="9_von4s"]
 [ext_resource type="Script" path="res://assets/Scripts/data.gd" id="12_ip87k"]
 [ext_resource type="PackedScene" uid="uid://dpyv4y1vemfat" path="res://assets/Cenas/shadow.tscn" id="14_ctp5t"]
 [ext_resource type="Script" path="res://assets/Scripts/trocaCena.gd" id="15_10jxp"]
+[ext_resource type="PackedScene" uid="uid://p1cnyfaewb6s" path="res://assets/Cenas/dialogos.tscn" id="16_wbdxt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i14ew"]
 radius = 9.0
@@ -448,8 +447,6 @@ position_smoothing_enabled = true
 [node name="Borboleta" type="Area2D" parent="."]
 position = Vector2(279, 241)
 scale = Vector2(0.3, 0.3)
-script = ExtResource("8_abcxw")
-interaction = ExtResource("9_a1sml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Borboleta"]
 sprite_frames = SubResource("SpriteFrames_gc11f")
@@ -610,6 +607,8 @@ animation = &"Tomate"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Tomate2"]
 shape = SubResource("CircleShape2D_m62v4")
+
+[node name="Dialogos" parent="." instance=ExtResource("16_wbdxt")]
 
 [connection signal="body_entered" from="PoteDeSementes" to="PoteDeSementes" method="_on_body_entered"]
 [connection signal="body_entered" from="Porta_casa" to="Porta_casa" method="_on_body_entered"]

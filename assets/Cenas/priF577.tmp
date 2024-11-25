@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://d1as5hbtfa83e"]
+[gd_scene load_steps=68 format=3 uid="uid://d1as5hbtfa83e"]
 
 [ext_resource type="Script" path="res://assets/Scripts/principal.gd" id="1_abkur"]
 [ext_resource type="PackedScene" uid="uid://beie1kr5m570m" path="res://assets/Cenas/cenario_grama.tscn" id="1_dikdi"]
@@ -10,13 +10,64 @@
 [ext_resource type="Script" path="res://assets/Scripts/pote_de_sementes.gd" id="6_taa3o"]
 [ext_resource type="Script" path="res://assets/Scripts/horas.gd" id="7_bjuq1"]
 [ext_resource type="Texture2D" uid="uid://drtihgp0eq2og" path="res://assets/butterfly spritesheet.png" id="7_ubghl"]
-[ext_resource type="Script" path="res://assets/Scripts/NPC1.gd" id="8_abcxw"]
 [ext_resource type="PackedScene" uid="uid://bt2i0kdpx3sad" path="res://assets/Cenas/time_manager.tscn" id="8_g3rlu"]
-[ext_resource type="Resource" uid="uid://jjphb4rekrlh" path="res://assets/Dialogos/Npc_base.tres" id="9_a1sml"]
 [ext_resource type="Texture2D" uid="uid://5mxws0liyjkb" path="res://assets/tilemaps/spring tilemap.png" id="9_von4s"]
 [ext_resource type="Script" path="res://assets/Scripts/data.gd" id="12_ip87k"]
 [ext_resource type="PackedScene" uid="uid://dpyv4y1vemfat" path="res://assets/Cenas/shadow.tscn" id="14_ctp5t"]
 [ext_resource type="Script" path="res://assets/Scripts/trocaCena.gd" id="15_10jxp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jig1b"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2oyv"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65kxr"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya0rh"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pmnt"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaxey"]
+atlas = ExtResource("3_j4mgd")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0mgt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jig1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2oyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65kxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya0rh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pmnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaxey")
+}],
+"loop": false,
+"name": &"Tomate",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m62v4"]
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i14ew"]
 radius = 9.0
@@ -331,63 +382,38 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2bc3"]
 size = Vector2(12, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jig1b"]
-atlas = ExtResource("3_j4mgd")
-region = Rect2(80, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i2oyv"]
-atlas = ExtResource("3_j4mgd")
-region = Rect2(64, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_65kxr"]
-atlas = ExtResource("3_j4mgd")
-region = Rect2(48, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ya0rh"]
-atlas = ExtResource("3_j4mgd")
-region = Rect2(32, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pmnt"]
-atlas = ExtResource("3_j4mgd")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xaxey"]
-atlas = ExtResource("3_j4mgd")
-region = Rect2(0, 32, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_k0mgt"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jig1b")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i2oyv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_65kxr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ya0rh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4pmnt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xaxey")
-}],
-"loop": false,
-"name": &"Tomate",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_m62v4"]
-radius = 5.0
-
 [node name="Principal" type="Node2D"]
 script = ExtResource("1_abkur")
 
 [node name="cenario_grama" parent="." instance=ExtResource("1_dikdi")]
+
+[node name="Tomate" type="Area2D" parent="."]
+position = Vector2(281, 180)
+monitorable = false
+script = ExtResource("3_2qoip")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tomate"]
+sprite_frames = SubResource("SpriteFrames_k0mgt")
+animation = &"Tomate"
+frame = 2
+frame_progress = 0.838629
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tomate"]
+shape = SubResource("CircleShape2D_m62v4")
+
+[node name="Tomate2" type="Area2D" parent="."]
+position = Vector2(267, 180)
+monitorable = false
+script = ExtResource("3_2qoip")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Tomate2"]
+sprite_frames = SubResource("SpriteFrames_k0mgt")
+animation = &"Tomate"
+frame = 2
+frame_progress = 0.838629
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tomate2"]
+shape = SubResource("CircleShape2D_m62v4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -448,8 +474,6 @@ position_smoothing_enabled = true
 [node name="Borboleta" type="Area2D" parent="."]
 position = Vector2(279, 241)
 scale = Vector2(0.3, 0.3)
-script = ExtResource("8_abcxw")
-interaction = ExtResource("9_a1sml")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Borboleta"]
 sprite_frames = SubResource("SpriteFrames_gc11f")
@@ -585,37 +609,11 @@ caminho = "res://assets/Cenas/dentro_da_casa.tscn"
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_a2bc3")
 
-[node name="Plantas" type="Node" parent="."]
-
-[node name="Tomate" type="Area2D" parent="Plantas"]
-position = Vector2(281, 180)
-monitorable = false
-script = ExtResource("3_2qoip")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plantas/Tomate"]
-sprite_frames = SubResource("SpriteFrames_k0mgt")
-animation = &"Tomate"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Tomate"]
-shape = SubResource("CircleShape2D_m62v4")
-
-[node name="Tomate2" type="Area2D" parent="Plantas"]
-position = Vector2(267, 180)
-monitorable = false
-script = ExtResource("3_2qoip")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Plantas/Tomate2"]
-sprite_frames = SubResource("SpriteFrames_k0mgt")
-animation = &"Tomate"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Plantas/Tomate2"]
-shape = SubResource("CircleShape2D_m62v4")
-
+[connection signal="body_entered" from="Tomate" to="." method="_on_tomate_body_entered"]
+[connection signal="body_entered" from="Tomate" to="Tomate" method="_on_body_entered"]
+[connection signal="body_exited" from="Tomate" to="." method="_on_tomate_body_exited"]
+[connection signal="body_exited" from="Tomate" to="Tomate" method="_on_body_exited"]
+[connection signal="body_entered" from="Tomate2" to="Tomate2" method="_on_body_entered"]
+[connection signal="body_exited" from="Tomate2" to="Tomate2" method="_on_body_exited"]
 [connection signal="body_entered" from="PoteDeSementes" to="PoteDeSementes" method="_on_body_entered"]
 [connection signal="body_entered" from="Porta_casa" to="Porta_casa" method="_on_body_entered"]
-[connection signal="body_entered" from="Plantas/Tomate" to="." method="_on_tomate_body_entered"]
-[connection signal="body_entered" from="Plantas/Tomate" to="Plantas/Tomate" method="_on_body_entered"]
-[connection signal="body_exited" from="Plantas/Tomate" to="." method="_on_tomate_body_exited"]
-[connection signal="body_exited" from="Plantas/Tomate" to="Plantas/Tomate" method="_on_body_exited"]
-[connection signal="body_entered" from="Plantas/Tomate2" to="Plantas/Tomate2" method="_on_body_entered"]
-[connection signal="body_exited" from="Plantas/Tomate2" to="Plantas/Tomate2" method="_on_body_exited"]
